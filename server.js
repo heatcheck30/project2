@@ -37,6 +37,13 @@ app.get("/todo/new", (req, res) => {
     res.render("new.ejs")
 })
 
+// SHOW
+
+app.get("/todo/:id", (req, res)=> {
+    Todo.findById(req.params.id, (err, foundTodo)=> {
+        res.render("show.ejs", { todo: foundTodo })
+    })
+})
 
 
 
@@ -54,13 +61,6 @@ app.post("/todo", (req, res) => {
 })
 
 
-// SHOW
-
-app.get("/todo/:id", (req, res)=> {
-    Todo.findById(req.params.id, (err, foundTodo)=> {
-        res.render("show.ejs", { todo: foundTodo })
-    })
-})
 
 
 
