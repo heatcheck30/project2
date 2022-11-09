@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 const Todo = require('./models/todo.js')
 
 require('dotenv').config()
@@ -19,6 +20,7 @@ db.on("disconnected", ()=> console.log("mongo DISCONNECTED"))
 
 // MIDDLEWARE
 app.use(express.urlencoded({ extended: true}))
+app.use(methodOverride("_method"))
 
 
 
@@ -37,15 +39,29 @@ app.get("/todo/new", (req, res) => {
     res.render("new.ejs")
 })
 
-// SHOW
-
-app.get("/todo/:id", (req, res)=> {
-    Todo.findById(req.params.id, (err, foundTodo)=> {
-        res.render("show.ejs", { todo: foundTodo })
+// DELETE
+app.delete("/todo/:id", (req, res) => {
+    Todo.findByIdAndRemove(req.params.id, (err, deletedTask) => {
+        console.log(deletedTask)
+        res.redirect("/todo")
     })
 })
 
-
+// UPDATE
+app.put("/todo/:id", (req, res) => {
+    if(req.body.completed === "on"){
+        req.body.completed = true;
+    } else {
+        req.body.completed = false;
+    }
+    Todo.findByIdAndUpdate(
+        req.params.id, 
+        req.body, 
+        { new: true }, 
+        (err, updatedTodo) => {
+        res.redirect(`/todo/${req.params.id}`);
+    })
+})
 
 // CREATE
 app.post("/todo", (req, res) => {
@@ -54,13 +70,28 @@ app.post("/todo", (req, res) => {
     } else {
         req.body.completed = false
     }
-
+    
     Todo.create(req.body, (error, createdTodo) => {
-        res.redirect("/todo/");
+        res.redirect("/todo");
     })
 })
 
 
+// EDIT
+app.get("/todo/:id/edit", (req, res) => {
+    Todo.findById(req.params.id, (err, foundTodo) => {
+    res.render("edit.ejs", { todo: foundTodo});
+    })
+})
+
+
+// SHOW
+
+app.get("/todo/:id", (req, res)=> {
+    Todo.findById(req.params.id, (err, foundTodo)=> {
+        res.render("show.ejs", { todo: foundTodo })
+    })
+})
 
 
 

@@ -17,11 +17,19 @@
       <% if (todo.completed) { %>
         <li>
         <a style="background-color: rgba(108, 239, 82, 0.836);" href="/todo/<%= todo._id %>">[<%=todo.priority %>] <%=todo.task%> [status: <%=todo.completed%>]</a>
+          <form action="/todo/<%= todo.id %>?_method=DELETE" method="post">
+            <input type="submit" value="DELETE" />
+          </form>
+          <a href=/todo/<%= todo._id %>/edit>EDIT</a>
       </li>
       <% } else { %>
         <li>
           <a style="background-color: rgba(214, 84, 82, 0.784);" href="/todo/<%= todo._id %>">[<%=todo.priority %>] <%=todo.task%> [status: <%=todo.completed%>]</a>
-        </li>
+          <form action="/todo/<%= todo.id %>?_method=DELETE" method="post">
+            <input type="submit" value="DELETE" />
+          </form>
+          <a href=/todo/<%= todo._id %>/edit>EDIT</a>
+      </li>
       <% } %>
       <% }) %>
     </ul>
