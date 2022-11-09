@@ -1,0 +1,24 @@
+* {
+    background-color: rgb(78, 77, 77);
+    text-align: center;
+}
+
+#task-ul li a {
+    padding: 5px 5px;
+    border: 1px solid rgba(245, 245, 245, 0.621);
+}
+
+ul {
+    list-style-type: none;
+}
+#task-ul li {
+    margin: 20px 0px;
+}
+
+#task-ul li a:hover {
+    border: 3px solid rgb(251, 251, 8);
+}
+
+a {
+    text-decoration: none !important;
+}

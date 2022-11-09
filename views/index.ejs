@@ -5,17 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
+    <link rel="stylesheet" href="style.css"
   </head>
   <body>
     <nav>
       <a href="/todo/new">Add a new task</a>
     </nav>
     <h1>My Todo List</h1>
-    <ul>
+    <ul id="task-ul">
       <% todo.forEach(todo => { %>
-      <li>
-        <a href="/todo/<%= todo._id %>">[<%=todo.priority %>] <%=todo.task%> [status: <%=todo.completed%>]</a>
+      <% if (todo.completed) { %>
+        <li>
+        <a style="background-color: rgba(108, 239, 82, 0.836);" href="/todo/<%= todo._id %>">[<%=todo.priority %>] <%=todo.task%> [status: <%=todo.completed%>]</a>
       </li>
+      <% } else { %>
+        <li>
+          <a style="background-color: rgba(214, 84, 82, 0.784);" href="/todo/<%= todo._id %>">[<%=todo.priority %>] <%=todo.task%> [status: <%=todo.completed%>]</a>
+        </li>
+      <% } %>
       <% }) %>
     </ul>
   </body>
