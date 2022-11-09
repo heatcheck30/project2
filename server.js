@@ -5,7 +5,7 @@ const Todo = require('./models/todo.js')
 
 require('dotenv').config()
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000;
 
 
 mongoose.connect(process.env.DATABASE_URL, {
