@@ -3,14 +3,14 @@ Title: "Todo List" is an app I created to keep track of daily tasks.
 Technologies Used: JavaScript, HTML, CSS
 
 MVP
-|Component|				Priority	Est. Time	Actual Time
-|Show|                H     1hr       1hr
-|Edit|                H     1hr       0.75hr
-|New|                 H     1hr       0.75hr
-|Route Creation|      H     1hr       1hr
-|Project Previews|		H			3hr				2hr
-|Responsive|				  H			1hr				0.5hr
-|Total|				      	H			8hrs			6hrs
+|Component|				Priority|	Est. Time	|Actual Time
+|Show|                H |    1hr  |   1hr
+|Edit|                H |    1hr  |   0.75hr
+|New|                 H |    1hr  |   0.75hr
+|Route Creation|      H |    1hr  |   1hr
+|Project Previews|		H	|		3hr		|		2hr
+|Responsive|				  H	|		1hr		|		0.5hr
+|Total|				      	H	|		8hrs	|		6hrs
 
 ## Project Schedule
 
