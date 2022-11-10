@@ -4,6 +4,7 @@ Technologies Used: JavaScript, HTML, CSS
 
 MVP
 |Component|				Priority|	Est. Time	|Actual Time
+|---|---|---
 |Show|                H |    1hr  |   1hr
 |Edit|                H |    1hr  |   0.75hr
 |New|                 H |    1hr  |   0.75hr
