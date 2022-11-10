@@ -24,5 +24,7 @@ Total				      	H			8hrs			6hrs
 
 Next Steps:
 Use React to improve the presentation of the 'Todo List'. Drag and rearrange items. Edit directly from index instead of show page.
+Add a weather widget to allow users to plan their accordingly.
+Add a countown timer widget to allow useres to see which tasks took longest to complete. (Or which ones they've been avoiding the longest)
 
 Trello board: https://trello.com/b/1trwY5YS/todo-list
